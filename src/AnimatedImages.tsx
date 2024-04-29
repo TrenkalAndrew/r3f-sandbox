@@ -1,11 +1,20 @@
-import { useMemo } from "react";
+import { createRef, useCallback, useMemo } from "react";
+import { ThreeEvent, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import TWEEN from "@tweenjs/tween.js";
+
 import { imageUris } from "./constants";
 import { useGeometryAttributes, useLoadImages } from "./hooks";
 import { getImagesInfo } from "./utils";
 import { shader } from "./shader";
 
+const ref = createRef<THREE.ShaderMaterial>();
+
 export const AnimatedImages = () => {
+  useFrame(() => {
+    TWEEN.update();
+  });
+
   const images = useLoadImages(imageUris);
   const [sourceImageInfo, destinationImageInfo] = useMemo(
     () => getImagesInfo(images),
@@ -17,18 +26,27 @@ export const AnimatedImages = () => {
     destinationImageInfo
   );
 
-  console.log({
-    positions: positions.length,
-    destination: destination.length,
-    source: source.length,
-  });
+  const handleDoubleClick = useCallback((e: ThreeEvent<MouseEvent>) => {
+    const { current } = ref;
+
+    if (!current) {
+      return;
+    }
+
+    e.stopPropagation();
+
+    new TWEEN.Tween(current.uniforms.progress)
+      .to({ value: current.uniforms.progress.value ? 0 : 1 }, 3000)
+      .easing(TWEEN.Easing.Quadratic.InOut)
+      .start();
+  }, []);
 
   if (!positions.length || !destination.length || !source.length) {
     return null;
   }
 
   return (
-    <points>
+    <points onDoubleClick={handleDoubleClick}>
       <bufferGeometry attach="geometry">
         <bufferAttribute
           attach="attributes-position"
@@ -50,6 +68,7 @@ export const AnimatedImages = () => {
         />
       </bufferGeometry>
       <shaderMaterial
+        ref={ref}
         attach="material"
         uniforms={{
           sourceTexture: {
