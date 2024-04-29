@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { getPositionsForImage, loadImages } from "./utils";
-import { ImageInfo } from "./types";
+import { ImageInfo } from "../types";
 
 export const useLoadImages = (uris: string[]) => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);

@@ -1,6 +1,6 @@
 import { extend, Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { AnimatedImages } from "./AnimatedImages";
+import { AnimatedImages } from "./images-transition";
 
 export const Scene = () => {
   return (

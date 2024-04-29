@@ -1,7 +1,6 @@
 import * as THREE from "three";
 
-import { ImagePixel } from "./three";
-import { ImageInfo } from "./types";
+import { ImageInfo, ImagePixel } from "../types";
 
 export const loadImages = async (uris: string[]) => {
   return Promise.all(

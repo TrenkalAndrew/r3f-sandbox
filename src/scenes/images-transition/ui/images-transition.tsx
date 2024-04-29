@@ -3,10 +3,10 @@ import { ThreeEvent, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import TWEEN from "@tweenjs/tween.js";
 
-import { imageUris } from "./constants";
-import { useGeometryAttributes, useLoadImages } from "./hooks";
-import { getImagesInfo } from "./utils";
-import { shader } from "./shader";
+import { ANIMATION_DURATION_MS, IMAGE_URIS } from "../constants";
+import { useGeometryAttributes, useLoadImages } from "../lib/hooks";
+import { getImagesInfo } from "../lib/utils";
+import { shader } from "../../../shader";
 
 const ref = createRef<THREE.ShaderMaterial>();
 
@@ -15,7 +15,7 @@ export const AnimatedImages = () => {
     TWEEN.update();
   });
 
-  const images = useLoadImages(imageUris);
+  const images = useLoadImages(IMAGE_URIS);
   const [sourceImageInfo, destinationImageInfo] = useMemo(
     () => getImagesInfo(images),
     [images]
@@ -36,7 +36,10 @@ export const AnimatedImages = () => {
     e.stopPropagation();
 
     new TWEEN.Tween(current.uniforms.progress)
-      .to({ value: current.uniforms.progress.value ? 0 : 1 }, 3000)
+      .to(
+        { value: current.uniforms.progress.value ? 0 : 1 },
+        ANIMATION_DURATION_MS
+      )
       .easing(TWEEN.Easing.Quadratic.InOut)
       .start();
   }, []);
