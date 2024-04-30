@@ -1,10 +1,11 @@
 import { extend, Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { AnimatedImages } from "./images-transition";
+import { Suspense } from "react";
 
 export const Scene = () => {
   return (
-    <Canvas>
+    <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
       <PerspectiveCamera
         fov={75}
         near={0.1}
@@ -14,7 +15,9 @@ export const Scene = () => {
         makeDefault
       />
       <OrbitControls maxDistance={100} />
-      <AnimatedImages />
+      <Suspense fallback="...loading">
+        <AnimatedImages />
+      </Suspense>
     </Canvas>
   );
 };
