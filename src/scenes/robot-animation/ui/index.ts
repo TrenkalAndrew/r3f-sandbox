@@ -1,1 +1,1 @@
-export { Robot } from "./Robot";
+export { Scene } from "./scene";

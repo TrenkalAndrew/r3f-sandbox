@@ -1,1 +1,1 @@
-export { Scene as RobotAnimationScene } from "./Scene";
+export { Scene as RobotAnimationScene } from "./ui/scene";

@@ -1,6 +1,6 @@
 import { extend, Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { Robot } from "./ui";
+import { Robot } from "./Robot";
 
 export const Scene = () => {
   return (
