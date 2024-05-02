@@ -6,7 +6,7 @@ import TWEEN from "@tweenjs/tween.js";
 import { ANIMATION_DURATION_MS, IMAGE_URIS } from "../constants";
 import { useGeometryAttributes, useLoadImages } from "../lib/hooks";
 import { getImagesInfo } from "../lib/utils";
-import { shader } from "../../../shader";
+import { shader } from "./shader";
 
 const ref = createRef<THREE.ShaderMaterial>();
 

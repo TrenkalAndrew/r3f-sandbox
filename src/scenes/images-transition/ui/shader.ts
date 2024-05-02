@@ -1,5 +1,7 @@
 export const shader = {
   vertexShader: `
+        precision highp float;
+  
         #define PI 3.1415926538
 
         varying vec2 normalizedSource;
@@ -36,6 +38,8 @@ export const shader = {
         }
     `,
   fragmentShader: `
+        precision highp float;
+
         varying vec2 normalizedSource;
         varying vec2 normalizedDestination;
 
