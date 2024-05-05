@@ -26,6 +26,9 @@ dependencies:
   framer-motion:
     specifier: ^11.1.7
     version: 11.1.7(react-dom@18.3.1)(react@18.3.1)
+  framer-motion-3d:
+    specifier: ^11.1.7
+    version: 11.1.7(@react-three/fiber@8.16.3)(react-dom@18.3.1)(react@18.3.1)(three@0.163.0)
   leva:
     specifier: ^0.9.35
     version: 0.9.35(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1)(react@18.3.1)
@@ -36,7 +39,7 @@ dependencies:
     specifier: ^18.3.1
     version: 18.3.1(react@18.3.1)
   styled-components:
-    specifier: ^6.1.9
+    specifier: ^6
     version: 6.1.9(react-dom@18.3.1)(react@18.3.1)
   three:
     specifier: ^0.163.0
@@ -2150,6 +2153,24 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /framer-motion-3d@11.1.7(@react-three/fiber@8.16.3)(react-dom@18.3.1)(react@18.3.1)(three@0.163.0):
+    resolution: {integrity: sha512-14UiHr0qqKNWtIZ6Ak8WSW4sAo0kMmArIH3sJTsnW1nd3AIr2tlLm2zDFqBBXyib+wjAc8JHbSo7HuKdvj3W3w==}
+    peerDependencies:
+      '@react-three/fiber': ^8.2.2
+      react: '>=18.0'
+      react-dom: '>=18.0'
+      three: '>=0.133'
+    dependencies:
+      '@react-three/fiber': 8.16.3(react-dom@18.3.1)(react@18.3.1)(three@0.163.0)
+      framer-motion: 11.1.7(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-merge-refs: 2.1.1
+      three: 0.163.0
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+    dev: false
+
   /framer-motion@11.1.7(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-cW11Pu53eDAXUEhv5hEiWuIXWhfkbV32PlgVISn7jRdcAiVrJ1S03YQQ0/DzoswGYYwKi4qYmHHjCzAH52eSdQ==}
     peerDependencies:
@@ -2722,6 +2743,10 @@ packages:
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
+
+  /react-merge-refs@2.1.1:
+    resolution: {integrity: sha512-jLQXJ/URln51zskhgppGJ2ub7b2WFKGq3cl3NYKtlHoTG+dN2q7EzWrn3hN3EgPsTMvpR9tpq5ijdp7YwFZkag==}
     dev: false
 
   /react-reconciler@0.27.0(react@18.3.1):
