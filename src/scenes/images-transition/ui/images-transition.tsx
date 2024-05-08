@@ -6,7 +6,8 @@ import TWEEN from "@tweenjs/tween.js";
 import { ANIMATION_DURATION_MS, IMAGE_URIS } from "../constants";
 import { useGeometryAttributes, useLoadImages } from "../lib/hooks";
 import { getImagesInfo } from "../lib/utils";
-import { shader } from "./shader";
+import vertex from "../shaders/vertex.glsl";
+import fragment from "../shaders/fragment.glsl";
 
 const ref = createRef<THREE.ShaderMaterial>();
 
@@ -91,7 +92,8 @@ export const AnimatedImages = () => {
             value: window.devicePixelRatio,
           },
         }}
-        {...shader}
+        vertexShader={vertex}
+        fragmentShader={fragment}
       />
     </points>
   );
