@@ -1,0 +1,3 @@
+export const WIREFRAME_SCALE_DELTA = 0.015;
+
+export const SPHERE_SEGMENTS_AMOUNT = 100;
