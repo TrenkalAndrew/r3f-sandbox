@@ -1,0 +1,1 @@
+export { MusicVisualizerScene } from "./ui";
