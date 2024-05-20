@@ -1,6 +1,7 @@
 precision highp float;
 
 uniform float uTime;
+uniform float uAudioFrequency;
 
 varying vec2 vUv;
 varying float vPattern;
@@ -17,13 +18,19 @@ vec2 hash2(vec2 p) {
 	return vec2(hash(p*.754),hash(1.5743*p.yx+4.5891))-.5;
 }
 
-float gavoronoi3(in vec2 p) {    
+float EaseInQuint(float x) {
+    return pow(x, 5.0);
+}
+
+float gavoronoi3(in vec2 p) {   
+    float time = uTime + mix(1.0, 3.0, EaseInQuint(uAudioFrequency));
+
     vec2 ip = floor(p);
     vec2 fp = fract(p);
     float f = 3.*PI;//frequency
     float v = 1.0;//cell variability <1.
     float dv = 0.0;//direction variability <1.
-    vec2 dir = m + cos(uTime);//vec2(.7,.7);
+    vec2 dir = vec2(1.3) + cos(time);//vec2(.7,.7);
     float va = 0.0;
    	float wt = 0.0;
     for (int i=-1; i<=1; i++) 
@@ -64,7 +71,8 @@ void main() {
 	
     float r = dot(nor(uv), light);
 
-    vec3 newPosition = position + normal * clamp(1.0 -r, 0.0, 0.2);
+    float displacement = clamp(1.0 - r, 0.0, 0.2) + uAudioFrequency / 2.0;
+    vec3 newPosition = position + normal * displacement;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
 
     vPattern = r;

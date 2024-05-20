@@ -3,6 +3,7 @@ precision highp float;
 varying float vPattern;
 
 uniform float uTime;
+uniform float uAudioFrequency;
 
 struct ColorStop {
     vec3 color;
@@ -26,11 +27,13 @@ struct ColorStop {
 void main() {
     vec3 color;
 
-    vec3 mainColor = vec3(0.1, 0.4, 0.9);
+    float time = uTime * (1.0 + uAudioFrequency);
 
-    mainColor.r *= 0.9 * sin(uTime) / 3.2;
-    mainColor.r *= 1.1 * sin(uTime / 2.0) / 2.5;
-    mainColor.r *= 0.8 * sin(uTime / 5.0) / 4.0;
+    vec3 mainColor = mix(vec3(0.2, 0.3, 0.9), vec3(0.4, 1.0, 0.3), uAudioFrequency);
+
+    mainColor.r *= 0.9 * sin(time) / 3.2;
+    mainColor.g *= 1.1 * cos(time / 2.0) / 2.5;
+    mainColor.b *= 0.8 * cos(time / 5.0) / 4.0;
     mainColor.rgb += 0.1;
 
     ColorStop[4] colors = ColorStop[](
