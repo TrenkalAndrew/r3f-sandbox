@@ -9,8 +9,8 @@ type ShardProps = {
 export const Shard = ({ data }: ShardProps) => {
   const materialProps = useControls({
     thickness: { value: 0.275, min: 0, max: 1, step: 0.01 },
-    ior: { value: 1.8, min: 0, max: 3, step: 0.1 },
-    chromaticAberration: { value: 0.2, min: 0, max: 1 },
+    ior: { value: 0.4, min: 0, max: 3, step: 0.1 },
+    chromaticAberration: { value: 0.85, min: 0, max: 1 },
     resolution: { value: 300 },
   });
 

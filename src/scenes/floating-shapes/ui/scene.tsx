@@ -31,8 +31,6 @@ export const Scene = () => {
     [mouseCoordinates.x, mouseCoordinates.y]
   );
 
-  console.log({ mouseCoordinates: mouseCoordinates.x });
-
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
 
