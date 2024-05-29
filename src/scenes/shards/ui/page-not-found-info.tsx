@@ -1,7 +1,7 @@
 import { Text } from "@react-three/drei";
 import { ComponentProps } from "react";
 
-import font from '@assets/fonts/PPNeueMontreal-Regular.ttf';
+import font from '@assets/fonts/PPNeueMontreal-Regular.ttf?url';
 
 type TextProps = ComponentProps<typeof Text>;
 

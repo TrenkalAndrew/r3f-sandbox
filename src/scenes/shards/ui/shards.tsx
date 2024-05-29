@@ -3,7 +3,7 @@ import { useThree } from "@react-three/fiber";
 import { Shard } from "./shard";
 import { PageNotFoundInfo } from "./page-not-found-info";
 
-import modelPath from '@assets/models/shards.glb';
+import modelPath from '@assets/models/shards.glb?url';
 
 export const Shards = () => {
   const { viewport } = useThree();
