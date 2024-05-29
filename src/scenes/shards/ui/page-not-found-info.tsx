@@ -1,6 +1,8 @@
 import { Text } from "@react-three/drei";
 import { ComponentProps } from "react";
 
+import font from '/fonts/PPNeueMontreal-Regular.ttf';
+
 type TextProps = ComponentProps<typeof Text>;
 
 const defaultTextProps: Partial<TextProps> = {
@@ -10,12 +12,10 @@ const defaultTextProps: Partial<TextProps> = {
 };
 
 export const PageNotFoundInfo = () => {
-  const src = "/fonts/PPNeueMontreal-Regular.ttf";
-
   return (
     <group>
       <Text
-        font={src}
+        font={font}
         position={[0, 0, -0.1]}
         fontSize={0.4}
         {...defaultTextProps}
@@ -23,7 +23,7 @@ export const PageNotFoundInfo = () => {
         404
       </Text>
       <Text
-        font={src}
+        font={font}
         position={[0, -0.25, -0.1]}
         fontSize={0.05}
         {...defaultTextProps}
