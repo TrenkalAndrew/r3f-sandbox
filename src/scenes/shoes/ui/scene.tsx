@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { proxy } from "valtio";
 
-import { Shoe } from "./shoe";
+import { Shoes } from "./shoes";
 import { Picker } from "./picker";
 import { DEFAULT_COLOR } from "./constants";
 
@@ -33,7 +33,7 @@ export const Scene = () => {
           position={[10, 15, 10]}
           castShadow
         />
-        <Shoe state={state} />
+        <Shoes state={state} />
         <Environment preset="city" />
         <ContactShadows
           position={[0, -0.8, 0]}

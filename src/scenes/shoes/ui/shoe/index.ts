@@ -1,1 +1,0 @@
-export { Shoe } from "./Shoe";

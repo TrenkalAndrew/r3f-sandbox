@@ -6,15 +6,15 @@ import { useSnapshot } from "valtio";
 
 import { State } from "../../types";
 
-import shoe from "@assets/models/shoe-draco.glb?url";
+import shoes from "@assets/models/shoe-draco.glb?url";
 
-type ShoeProps = { state: State };
+type ShoesProps = { state: State };
 
-export const Shoe = ({ state }: ShoeProps) => {
+export const Shoes = ({ state }: ShoesProps) => {
   const ref = useRef<Group>(null);
   const snap = useSnapshot(state);
 
-  const { nodes, materials } = useGLTF(shoe);
+  const { nodes, materials } = useGLTF(shoes);
   const [hovered, setHovered] = useState(null);
 
   useFrame((state) => {

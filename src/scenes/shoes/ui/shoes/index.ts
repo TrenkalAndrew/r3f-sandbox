@@ -1,0 +1,1 @@
+export { Shoes } from "./Shoes";
