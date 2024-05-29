@@ -3,9 +3,11 @@ import { useThree } from "@react-three/fiber";
 import { Shard } from "./shard";
 import { PageNotFoundInfo } from "./page-not-found-info";
 
+import modelPath from '@assets/models/shards.glb';
+
 export const Shards = () => {
   const { viewport } = useThree();
-  const { nodes } = useGLTF("/models/shards.glb");
+  const { nodes } = useGLTF(modelPath);
 
   return (
     <group scale={Math.max(viewport.width, viewport.height) / 3.5}>

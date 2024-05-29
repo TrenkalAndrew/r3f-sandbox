@@ -1,7 +1,6 @@
 import { ShardsScene } from "./shards";
 import { ImagesTransitionScene } from "./images-transition";
 import { TransmittedTorusScene } from "./transmitted-torus";
-import { FloatingShapesScene } from "./floating-shapes";
 import { MusicVisualizerScene } from "./music-visualizer";
 
 export const scenes = [
@@ -17,9 +16,5 @@ export const scenes = [
   {
     name: "transmitted-torus",
     component: TransmittedTorusScene,
-  },
-  {
-    name: "floating-shapes",
-    component: FloatingShapesScene,
   },
 ];
