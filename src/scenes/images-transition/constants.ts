@@ -1,5 +1,5 @@
-import cat1 from '/images/cat1.jpeg';
-import cat2 from '/images/cat2.jpeg';
+import cat1 from '@assets/images/cat1.jpeg?url';
+import cat2 from '@assets/images/cat2.jpeg?url';
 
 export const IMAGE_URIS = [cat1, cat2];
 
