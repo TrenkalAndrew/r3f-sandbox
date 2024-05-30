@@ -11,7 +11,7 @@ export const Scene = () => {
         near={0.1}
         far={100}
         aspect={window.innerWidth / window.innerHeight}
-        position={[0, 0, 1]}
+        position={[0, 0, 1.5]}
         makeDefault
       />
       <OrbitControls maxDistance={100} />
